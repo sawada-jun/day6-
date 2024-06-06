@@ -1,0 +1,39 @@
+
+
+function simplePasswordLock(password) {
+    if (password === "password") {  //←の=が厳密等価になっていませんでした!
+        return "パスワードが合いました。ようこそ！";
+    } else {    //演習最後でエラーになっていましたが、ここのelseが抜けていました!!
+        return "パスワードが違います。もう一度入力してください。";
+    }
+}
+actual = simplePasswordLock("password");
+expected = "パスワードが合いました。ようこそ！";
+
+if (actual === expected) {
+    console.log("OK! Test PASSED");
+} else {
+    console.error("Test failed. Try again!");
+    console.group("Result:");
+    console.log("  actual:", actual);
+    console.log("expected:", expected);
+    console.groupEnd()
+}
+
+actual = simplePasswordLock("qwerty");
+expected = "パスワードが違います。もう一度入力してください。";
+
+if (actual === expected) {
+    console.log("OK! Test PASSED");
+} else {
+    console.error("Test failed. Try again!");
+    console.group("Result:");
+    console.log("  actual:", actual);
+    console.log("expected:", expected);
+    console.groupEnd()
+}
+
+
+
+console.log(simplePasswordLock("qwerty")); // => "パスワードが違います。もう一度入力してください。" と表示されるようにする。
+console.log(simplePasswordLock("password")); // => "パスワードが合いました。ようこそ！" と表示されるようにする。
